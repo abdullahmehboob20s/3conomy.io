@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { ColumnDef } from "@tanstack/react-table";
 import { priorities, statuses } from "../data/data";
 import { Task } from "../data/schema";
@@ -7,6 +8,7 @@ import Icons from "@/components/Icons";
 export const columns: ColumnDef<Task>[] = [
   {
     id: "select",
+    // @ts-ignore
     header: ({ column }) => (
       // <Checkbox
       //   checked={
@@ -20,7 +22,7 @@ export const columns: ColumnDef<Task>[] = [
       // <p>Asset Name</p>
       <DataTableColumnHeader column={column} title="Asset Name" />
     ),
-    cell: ({ row }) => (
+    cell: () => (
       // <Checkbox
       //   checked={row.getIsSelected()}
       //   onCheckedChange={(value) => row.toggleSelected(!!value)}
@@ -40,6 +42,7 @@ export const columns: ColumnDef<Task>[] = [
   },
   {
     accessorKey: "id",
+    // @ts-ignore
     header: ({ column }) => (
       <DataTableColumnHeader
         className="justify-center"
@@ -47,7 +50,7 @@ export const columns: ColumnDef<Task>[] = [
         title="Apy Reward"
       />
     ),
-    cell: ({ row }) => (
+    cell: () => (
       <div className="flex items-center space-x-2 justify-center">
         {/* {row.getValue("id")} */}
         <span className="size-2 rounded-full bg-green-500"></span>
@@ -59,6 +62,7 @@ export const columns: ColumnDef<Task>[] = [
   },
   {
     accessorKey: "title",
+    // @ts-ignore
     header: ({ column }) => (
       <DataTableColumnHeader
         className="justify-center"
@@ -66,7 +70,7 @@ export const columns: ColumnDef<Task>[] = [
         title="Price"
       />
     ),
-    cell: ({ row }) => {
+    cell: () => {
       return (
         <p className="text-center">$0.194422</p>
         // <div className="flex space-x-2">
@@ -80,6 +84,7 @@ export const columns: ColumnDef<Task>[] = [
   },
   {
     accessorKey: "status",
+    // @ts-ignore
     header: ({ column }) => (
       <DataTableColumnHeader
         className="justify-center"
@@ -87,9 +92,9 @@ export const columns: ColumnDef<Task>[] = [
         title="24H Change"
       />
     ),
-    cell: ({ row }) => {
+    cell: ({ row }: any) => {
       const status = statuses.find(
-        (status) => status.value === row.getValue("status")
+        (status: any) => status.value === row.getValue("status")
       );
 
       if (!status) {
@@ -106,12 +111,13 @@ export const columns: ColumnDef<Task>[] = [
         </p>
       );
     },
-    filterFn: (row, id, value) => {
+    filterFn: (row: any, id: any, value: any) => {
       return value.includes(row.getValue(id));
     },
   },
   {
     accessorKey: "priority",
+    // @ts-ignore
     header: ({ column }) => (
       <DataTableColumnHeader
         className="justify-center"
@@ -119,9 +125,9 @@ export const columns: ColumnDef<Task>[] = [
         title="30 Day Trend"
       />
     ),
-    cell: ({ row }) => {
+    cell: ({ row }: any) => {
       const priority = priorities.find(
-        (priority) => priority.value === row.getValue("priority")
+        (priority: any) => priority.value === row.getValue("priority")
       );
 
       if (!priority) {
@@ -138,12 +144,13 @@ export const columns: ColumnDef<Task>[] = [
         </div>
       );
     },
-    filterFn: (row, id, value) => {
+    filterFn: (row: any, id: any, value: any) => {
       return value.includes(row.getValue(id));
     },
   },
   {
     accessorKey: "priority",
+    // @ts-ignore
     header: ({ column }) => (
       <DataTableColumnHeader
         className="justify-center"
@@ -151,12 +158,13 @@ export const columns: ColumnDef<Task>[] = [
         title="Balance"
       />
     ),
-    cell: ({ row }) => {
+    cell: () => {
       return <p className="text-center">1,239.778 ALGO</p>;
     },
   },
   {
     accessorKey: "priority",
+    // @ts-ignore
     header: ({ column }) => (
       <DataTableColumnHeader
         className="justify-center"
@@ -164,12 +172,13 @@ export const columns: ColumnDef<Task>[] = [
         title="Value"
       />
     ),
-    cell: ({ row }) => {
+    cell: () => {
       return <p className="text-center">$241.04</p>;
     },
   },
   {
     accessorKey: "priority",
+    // @ts-ignore
     header: ({ column }) => (
       <DataTableColumnHeader
         className="justify-center"
@@ -177,12 +186,12 @@ export const columns: ColumnDef<Task>[] = [
         title="Portfolio"
       />
     ),
-    cell: ({ row }) => {
+    cell: () => {
       return <p className="text-center">99.24%</p>;
     },
   },
   // {
   //   id: "actions",
-  //   cell: ({ row }) => <DataTableRowActions row={row} />,
+  //   cell: () => <DataTableRowActions row={row} />,
   // },
 ];
