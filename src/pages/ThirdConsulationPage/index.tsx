@@ -1,14 +1,49 @@
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuIcon,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 function ThirdConsulationPage() {
   return (
     <div>
       <header className="border-b border-white/20 px-10 flex items-center space-x-8 h-20">
         <button>Consultation</button>
-        <Button variant="ghost" className="h-auto p-0">
-          <span>Services</span> <ChevronDown className="size-4 opacity-80" />
-        </Button>
+
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" className="p-0 h-auto group">
+              <span>Services</span>
+              <DropdownMenuIcon />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent
+            align="start"
+            sideOffset={10}
+            className="w-[260px]"
+          >
+            <DropdownMenuLabel>Services</DropdownMenuLabel>
+            <DropdownMenuItem>Artificial Intelligence</DropdownMenuItem>
+            <DropdownMenuItem>Blockchain & Crypto</DropdownMenuItem>
+            <DropdownMenuItem>Institutional Fintech</DropdownMenuItem>
+            <DropdownMenuItem>Cybersecurity</DropdownMenuItem>
+            <DropdownMenuItem>Quantum Solutions</DropdownMenuItem>
+            <DropdownMenuItem>Tokenomics/CBDC’s</DropdownMenuItem>
+            <DropdownMenuItem>IoT & Smart City/DePIN</DropdownMenuItem>
+            <DropdownMenuItem>Decentralized Multicloud</DropdownMenuItem>
+            <DropdownMenuItem>Workforce 3.0</DropdownMenuItem>
+            <DropdownMenuItem>Supply Chain/RWA’s</DropdownMenuItem>
+            <DropdownMenuItem>ML/DL</DropdownMenuItem>
+            <DropdownMenuItem>3D Printing</DropdownMenuItem>
+            <DropdownMenuItem>Renewables</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+
         <Button variant="ghost" className="h-auto p-0">
           <span>Industries</span>
           <ChevronDown className="size-4 opacity-80" />

@@ -1,13 +1,26 @@
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuIcon,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Separator } from "@/components/ui/separator";
 import {
+  ArrowDown,
+  ArrowUp,
   Braces,
   ChevronDown,
   Code,
+  EllipsisVertical,
+  Files,
   FolderOpen,
   Key,
+  Link,
   List,
   MessageSquareMore,
+  MessageSquareMoreIcon,
   Play,
   Plus,
   Search,
@@ -15,6 +28,7 @@ import {
   SquareGanttChart,
   SquareTerminal,
   Star,
+  Trash2,
   Users,
 } from "lucide-react";
 
@@ -119,16 +133,61 @@ function ThirdMlPage() {
 
             <Separator orientation="vertical" className="h-auto" />
 
-            <Button variant="ghost" className="p-0 h-auto">
-              <span>GPT4o</span>
-              <ChevronDown className="size-4" />
-            </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="p-0 h-auto group">
+                  <span>GPT4o</span>
+                  <DropdownMenuIcon />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" sideOffset={10}>
+                <DropdownMenuItem>GPT4o</DropdownMenuItem>
+                <DropdownMenuItem>Llama 3</DropdownMenuItem>
+                <DropdownMenuItem>Clyde Opus 3</DropdownMenuItem>
+                <DropdownMenuItem>Mistral</DropdownMenuItem>
+                <DropdownMenuItem>Gemini 1.5 Pro</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
             <Separator orientation="vertical" className="h-auto" />
 
-            <button>
-              <ChevronDown className="size-4" />
-            </button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button className="p-0 h-auto group">
+                  <DropdownMenuIcon />
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
+                align="end"
+                sideOffset={10}
+                className="h-[50px] flex justify-between"
+              >
+                <DropdownMenuItem className="px-3">
+                  <ArrowDown className="size-5" />
+                </DropdownMenuItem>
+                <DropdownMenuItem className="px-3">
+                  <ArrowUp className="size-5" />
+                </DropdownMenuItem>
+                <DropdownMenuItem className="px-3">
+                  <Link className="size-5" />
+                </DropdownMenuItem>
+                <DropdownMenuItem className="px-3">
+                  <MessageSquareMoreIcon className="size-5" />
+                </DropdownMenuItem>
+                <DropdownMenuItem className="px-3">
+                  <Settings className="size-5" />
+                </DropdownMenuItem>
+                <DropdownMenuItem className="px-3">
+                  <Files className="size-5" />
+                </DropdownMenuItem>
+                <DropdownMenuItem className="px-3">
+                  <Trash2 className="size-5" />
+                </DropdownMenuItem>
+                <DropdownMenuItem className="px-3">
+                  <EllipsisVertical className="size-5" />
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </aside>
         </div>
 
