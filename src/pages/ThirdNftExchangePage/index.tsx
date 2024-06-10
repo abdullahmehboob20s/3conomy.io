@@ -1,3 +1,5 @@
+import Container from "@/components/Container";
+import Heading from "@/components/Heading";
 import Icons from "@/components/Icons";
 import NftCard from "@/components/NftCard";
 import { Button } from "@/components/ui/button";
@@ -33,20 +35,20 @@ const Card = () => {
 
 function ThirdNftExchangePage() {
   return (
-    <div className="p-10">
-      <div className="grid grid-cols-3 gap-6">
-        <Tabs defaultValue="all" className="col-span-1">
-          <TabsList className="h-auto w-fit p-0 bg-transparent">
-            <TabsTrigger variant="white" value="all">
+    <Container>
+      <div className="grid lg:grid-cols-3 gap-6">
+        <Tabs defaultValue="all" className="lg:col-span-1">
+          <TabsList className="h-auto p-0 bg-transparent overflow-auto [&>*]:flex-shrink-0 hide-scrollbar min-w-full w-0 flex justify-start">
+            <TabsTrigger variant="white" className="" value="all">
               ALL
             </TabsTrigger>
-            <TabsTrigger variant="white" value="art">
+            <TabsTrigger variant="white" className="" value="art">
               ART
             </TabsTrigger>
-            <TabsTrigger variant="white" value="membership">
+            <TabsTrigger variant="white" className="" value="membership">
               MEMBERSHIP
             </TabsTrigger>
-            <TabsTrigger variant="white" value="real-state">
+            <TabsTrigger variant="white" className="" value="real-state">
               REAL STATE
             </TabsTrigger>
           </TabsList>
@@ -59,8 +61,8 @@ function ThirdNftExchangePage() {
           </TabsContent>
         </Tabs>
 
-        <div className="col-span-2 flex items-center justify-between">
-          <p className="capitalize text-3xl">reit.sol</p>
+        <div className="lg:col-span-2 flex items-center justify-between max-lg:row-start-3 max-lg:row-end-4">
+          <Heading className="capitalize">reit.sol</Heading>
 
           <Button variant="ghost" className="p-0 h-auto">
             <span>View All</span> <ChevronRight className="size-4" />
@@ -75,7 +77,7 @@ function ThirdNftExchangePage() {
         <NftCard nftImage="/images/nfts/1.png" collectionName="SmallBrosNFT" />
         <NftCard nftImage="/images/nfts/2.png" collectionName="SmallCubes" />
 
-        <div className="col-span-1 flex items-center justify-between">
+        <div className="lg:col-span-1 flex items-center justify-between">
           <Tabs defaultValue="trending">
             <TabsList className="h-auto bg-neutral-900 rounded-full [&>*]:rounded-full p-1.5">
               <TabsTrigger value="trending">Trending</TabsTrigger>
@@ -91,14 +93,14 @@ function ThirdNftExchangePage() {
           </Button>
         </div>
 
-        <div className="col-span-2 flex items-center justify-between">
+        <div className="lg:col-span-2 flex items-center justify-between row-start-8 row-end-9">
           <h2 className="text-3xl">Best Offers</h2>
           <Button variant="ghost" className="p-0 h-auto">
             <span>View All</span> <ChevronRight className="size-4" />
           </Button>
         </div>
 
-        <div className="col-span-1">
+        <div className="lg:col-span-1">
           <header className="grid grid-cols-2 gap-4 mb-4">
             <Select defaultValue="apple">
               <SelectTrigger>
@@ -165,7 +167,7 @@ function ThirdNftExchangePage() {
         <NftCard nftImage="/images/nfts/3.png" collectionName="SmallBrosNFT" />
         <NftCard nftImage="/images/nfts/4.png" collectionName="SmallCubes" />
       </div>
-    </div>
+    </Container>
   );
 }
 

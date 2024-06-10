@@ -1,3 +1,5 @@
+import Container from "@/components/Container";
+import Heading from "@/components/Heading";
 import Icons from "@/components/Icons";
 import { Button } from "@/components/ui/button";
 
@@ -10,18 +12,20 @@ interface CardProps {
 
 const Card = ({ title, description, Icon }: CardProps) => {
   return (
-    <div className="p-8 pt-12 bg-neutral-900 rounded-2xl relative overflow-hidden">
-      <div className="size-28 absolute -top-3 -right-3 pointer-events-none rotate-[15deg] opacity-10">
-        <Icon className="w-full h-full z-10" />
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-neutral-900"></div>
-      </div>
+    <div className="flex flex-col p-8 2xl:pt-12 bg-neutral-900 rounded-2xl relative overflow-hidden">
+      <main className="flex-1">
+        <div className="size-28 absolute -top-3 -right-3 pointer-events-none rotate-[15deg] opacity-10">
+          <Icon className="w-full h-full z-10" />
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-neutral-900"></div>
+        </div>
 
-      <div className="flex items-center space-x-4 mb-5">
-        <Icon className="size-6" />
-        <p className="text-3xl">{title}</p>
-      </div>
+        <div className="flex items-center space-x-3 sm:space-x-4 mb-5">
+          <Icon className="size-5 sm:size-6" />
+          <Heading>{title}</Heading>
+        </div>
 
-      <p className="opacity-60 mb-8 w-[80%]">{description}</p>
+        <p className="opacity-60 mb-8 lg:w-[80%]">{description}</p>
+      </main>
 
       <div className="flex items-center justify-between">
         <a href="#" className="underline opacity-80">
@@ -36,16 +40,18 @@ const Card = ({ title, description, Icon }: CardProps) => {
 
 function ThirdLaunchPage() {
   return (
-    <div className="px-8 pt-14 pb-20">
-      <header className="mb-12">
+    <Container>
+      <header className="mb-10 lg:mb-12 max-lg:mt-3 2xl:pt-6">
         <div className="flex items-center justify-center space-x-4">
-          <Icons.pencilBox />
-          <p className="text-5xl">Create</p>
+          <Icons.pencilBox className="max-lg:size-6" />
+          <p className="text-3xl lg:text-4xl 2xl:text-5xl">Create</p>
         </div>
-        <p className="mt-5 text-center opacity-70">ICO & NFT Launchpad</p>
+        <p className="mt-3 lg:mt-5 text-center opacity-70">
+          ICO & NFT Launchpad
+        </p>
       </header>
 
-      <main className="grid grid-cols-2 gap-8">
+      <main className="grid sm:grid-cols-[repeat(auto-fit,minmax(300px,1fr));] gap-8">
         <Card
           title="Drop"
           description="A drop is the release of a new project. This
@@ -63,7 +69,7 @@ ready."
           Icon={Icons.img}
         />
       </main>
-    </div>
+    </Container>
   );
 }
 

@@ -1223,6 +1223,39 @@ const Icons = {
       </svg>
     );
   },
+
+  menuBars: ({ className, ...props }: SvgProps) => {
+    return (
+      <svg
+        width="14"
+        height="12"
+        viewBox="0 0 14 12"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className={className}
+        {...props}
+      >
+        <path
+          d="M8.5 1L13 1"
+          stroke="white"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+        <path
+          d="M1 6H13"
+          stroke="white"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+        <path
+          d="M4 11L13 11"
+          stroke="white"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+      </svg>
+    );
+  },
 };
 
 export default Icons;

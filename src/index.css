@@ -75,6 +75,8 @@
     --ring: 0 0% 3.9%;
 
     --radius: 0.5rem;
+
+    --header-height: 6.2rem;
   }
 
   .dark {
@@ -111,6 +113,12 @@
   }
 }
 
+@screen 2xl {
+  :root {
+    --header-height: 8rem;
+  }
+}
+
 @layer base {
   * {
     @apply border-border font-sf-pro-rounded;
@@ -120,4 +128,12 @@
   body {
     @apply bg-background text-foreground overflow-x-hidden overflow-y-visible;
   }
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }

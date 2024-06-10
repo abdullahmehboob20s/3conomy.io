@@ -69,6 +69,9 @@ export default {
           to: { height: "0" },
         },
       },
+      spacing: {
+        "header-height": "var(--header-height)",
+      },
       backgroundImage: {
         rainbow: "linear-gradient(220deg, #eaff6c, #46facf, #7c5bff)",
         "purple-to-blue": "linear-gradient(to right,#7C5BFF, #17FAC4)",

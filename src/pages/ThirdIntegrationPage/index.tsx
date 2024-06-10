@@ -1,12 +1,14 @@
+import Container from "@/components/Container";
+import Heading from "@/components/Heading";
 import IntegrationCard from "@/components/IntegrationCard";
 import brands from "@/lib/brands";
 
 function ThirdIntegrationPage() {
   return (
-    <div className="p-10">
-      <h1 className="text-3xl mb-8">Integrations</h1>
+    <Container>
+      <Heading className="mb-8">Integrations</Heading>
 
-      <main className="space-y-6">
+      <main className="space-y-4 2xl:space-y-6">
         {Object.keys(brands).map((brand) => (
           <IntegrationCard
             key={brand}
@@ -15,7 +17,7 @@ function ThirdIntegrationPage() {
           />
         ))}
       </main>
-    </div>
+    </Container>
   );
 }
 

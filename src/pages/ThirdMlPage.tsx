@@ -1,3 +1,4 @@
+import Heading from "@/components/Heading";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -39,7 +40,7 @@ interface SidebarButtonProps {
 const SidebarButton = ({ Icon }: SidebarButtonProps) => {
   return (
     <button>
-      <Icon className="size-5" />
+      <Icon className="size-4 2xl:size-5" />
     </button>
   );
 };
@@ -60,34 +61,32 @@ const Card = () => {
 
 function ThirdMlPage() {
   return (
-    <div className="min-h-[calc(100vh-8rem)] grid grid-cols-[72px_1fr]">
-      <aside className="border-r-2 border-white/5 flex flex-col items-center justify-between py-10">
-        <div className="space-y-7 flex flex-col">
-          <SidebarButton Icon={List} />
-          <SidebarButton Icon={Search} />
-          <SidebarButton Icon={Braces} />
-          <SidebarButton Icon={Key} />
-          <SidebarButton Icon={FolderOpen} />
-        </div>
+    <div className="lg:min-h-[calc(100vh-var(--header-height))] grid lg:grid-cols-[72px_1fr]">
+      <aside className="lg:border-r-2 border-white/10 lg:border-white/5 flex lg:flex-col items-center lg:justify-between px-6 py-6 max-lg:border-b lg:py-6 2xl:py-10 lg:space-y-7 max-lg:space-x-6 max-lg:[&>*]:flex-shrink-0 max-lg:w-0 min-w-full overflow-auto hide-scrollbar">
+        <SidebarButton Icon={List} />
+        <SidebarButton Icon={Search} />
+        <SidebarButton Icon={Braces} />
+        <SidebarButton Icon={Key} />
+        <SidebarButton Icon={FolderOpen} />
 
-        <div className="space-y-7 flex flex-col">
-          <SidebarButton Icon={Code} />
-          <SidebarButton Icon={SquareTerminal} />
-          <SidebarButton Icon={SquareGanttChart} />
-        </div>
+        <div className="flex-1 max-lg:hidden"></div>
+
+        <SidebarButton Icon={Code} />
+        <SidebarButton Icon={SquareTerminal} />
+        <SidebarButton Icon={SquareGanttChart} />
       </aside>
 
       <main>
         <header className="p-6 pb-0">
-          <h2 className="text-3xl relative w-fit pr-4 mb-3">
+          <Heading className="relative w-fit pr-4 mb-3">
             Untitled3.ipynb
             <button className="absolute top-1/2 left-full -translate-y-1/2 flex opacity-40">
-              <Star />
+              <Star className="size-[.8em]" />
             </button>
-          </h2>
+          </Heading>
 
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-6 [&>*]:opacity-60 [&>*:hover]:opacity-100 font-thin">
+          <div className="lg:flex max-lg:flex-col lg:items-center justify-between mb-5 mt-5 max-lg:space-y-4">
+            <div className="flex items-center space-x-6 [&>*]:opacity-60 [&>*:hover]:opacity-100 font-thin max-lg:[&>*]:flex-shrink-0 max-lg:w-0 min-w-full overflow-auto hide-scrollbar">
               <button>File</button>
               <button>Edit</button>
               <button>View</button>
@@ -98,35 +97,35 @@ function ThirdMlPage() {
             </div>
 
             <aside className="flex items-center space-x-8">
-              <Button className="p-0 h-auto" variant="ghost">
+              <Button className="!p-0 !h-auto" variant="ghost">
                 <MessageSquareMore className="size-5" />
                 <span>Comment</span>
               </Button>
-              <Button className="p-0 h-auto" variant="ghost">
+              <Button className="!p-0 !h-auto" variant="ghost">
                 <Users className="size-5" />
                 <span>Share</span>
               </Button>
-              <Button variant="ghost" className="p-0">
+              <Button variant="ghost" className="!p-0 !h-auto">
                 <Settings className="size-5" />
               </Button>
             </aside>
           </div>
         </header>
 
-        <div className="border-y-2 border-white/5 py-3 mt-2 px-6 flex items-center justify-between">
+        <div className="border-y-2 border-white/5 py-3 mt-2 px-6 flex lg:items-center justify-between max-lg:flex-col max-lg:space-y-5">
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" className="p-0 h-auto">
+            <Button variant="ghost" className="!p-0 !h-auto">
               <Plus className="size-4" />
               <span>Code</span>
             </Button>
-            <Button variant="ghost" className="p-0 h-auto">
+            <Button variant="ghost" className="!p-0 !h-auto">
               <Plus className="size-4" />
               <span>Text</span>
             </Button>
           </div>
 
           <aside className="flex items-stretch space-x-4">
-            <Button variant="ghost" className="p-0 h-auto">
+            <Button variant="ghost" className="!p-0 !h-auto">
               <span>Code</span>
               <ChevronDown className="size-4" />
             </Button>
@@ -135,7 +134,7 @@ function ThirdMlPage() {
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="p-0 h-auto group">
+                <Button variant="ghost" className="!p-0 !h-auto group">
                   <span>GPT4o</span>
                   <DropdownMenuIcon />
                 </Button>
@@ -153,7 +152,7 @@ function ThirdMlPage() {
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button className="p-0 h-auto group">
+                <button className="!p-0 !h-auto group">
                   <DropdownMenuIcon />
                 </button>
               </DropdownMenuTrigger>

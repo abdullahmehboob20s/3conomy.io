@@ -8,16 +8,18 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import Container from "@/components/Container";
+import Heading from "@/components/Heading";
 
 function ThirdConsulationPage() {
   return (
     <div>
-      <header className="border-b border-white/20 px-10 flex items-center space-x-8 h-20">
+      <Container className="border-b border-white/20 px-10 flex items-center [&>*]:flex-shrink-0 overflow-auto hide-scrollbar space-x-8 h-auto max-lg:py-4 lg:py-0 lg:h-20">
         <button>Consultation</button>
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="p-0 h-auto group">
+            <Button variant="ghost" className="!p-0 !h-auto group">
               <span>Services</span>
               <DropdownMenuIcon />
             </Button>
@@ -44,32 +46,34 @@ function ThirdConsulationPage() {
           </DropdownMenuContent>
         </DropdownMenu>
 
-        <Button variant="ghost" className="h-auto p-0">
+        <Button variant="ghost" className="!h-auto !p-0">
           <span>Industries</span>
           <ChevronDown className="size-4 opacity-80" />
         </Button>
-        <Button variant="ghost" className="h-auto p-0">
+        <Button variant="ghost" className="!h-auto !p-0">
           <span>Strategic Partners</span>
           <ChevronDown className="size-4 opacity-80" />
         </Button>
-        <Button variant="ghost" className="h-auto p-0">
+        <Button variant="ghost" className="!h-auto !p-0">
           <span>Featured Insights</span>
           <ChevronDown className="size-4 opacity-80" />
         </Button>
         <button>Careers</button>
-      </header>
+      </Container>
 
-      <main className="px-10 py-14">
-        <p className="text-2xl mb-6 capitalize opacity-70">who we are?</p>
+      <Container className="px-10">
+        <p className="text-xl 2xl:text-2xl mb-6 capitalize opacity-70">
+          who we are?
+        </p>
 
-        <p className="text-3xl lh-1.5">
+        <Heading className="max-sm:text-base lh-1.5">
           Third Consulting is the only major global consultancy that sits within
           a technology company. With principles grounded in open innovation,
           collaboration and trust, we don't just advise. We work side by side to
           design, build, and operate high-performing businesses together with
           our clients and partners.
-        </p>
-      </main>
+        </Heading>
+      </Container>
 
       <Button
         variant="secondary"

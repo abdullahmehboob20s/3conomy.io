@@ -3,23 +3,32 @@ import { HomePage } from "./pages";
 import DashboardLayout from "./components/layout/DashboardLayout";
 import { dashboardRoutes } from "./lib/routesName";
 import DashboardPage from "./pages/DashboardPage";
+import ThirdAgentsPage from "./pages/ThirdAgentsPage";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="" element={<HomePage />} />
-        <Route path="dashboard" element={<DashboardLayout />}>
-          <Route index element={<DashboardPage />} />
+        <Route path="dashboard">
+          <Route element={<DashboardLayout dashbbaordHeader={false} />}>
+            <Route path="third-agents" element={<ThirdAgentsPage />} />
+          </Route>
 
-          {Object.keys(dashboardRoutes).map((item) => (
-            <Route
-              key={dashboardRoutes[item].route}
-              path={dashboardRoutes[item].route}
-              element={dashboardRoutes[item].element}
-              children={dashboardRoutes[item].children}
-            />
-          ))}
+          <Route element={<DashboardLayout />}>
+            <Route index element={<DashboardPage />} />
+
+            {Object.keys(dashboardRoutes).map((item) =>
+              item == "third-agents" ? null : (
+                <Route
+                  key={dashboardRoutes[item].route}
+                  path={dashboardRoutes[item].route}
+                  element={dashboardRoutes[item].element}
+                  children={dashboardRoutes[item].children}
+                />
+              )
+            )}
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

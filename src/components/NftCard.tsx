@@ -24,7 +24,9 @@ function NftCard({
           {featured ? (
             <p className="capitalize text-lg mb-2 opacity-90">by: third team</p>
           ) : null}
-          <p className={cn("text-xl", featured ? "text-3xl" : null)}>
+          <p
+            className={cn("text-xl", featured ? "text-2xl sm:text-3xl" : null)}
+          >
             <span className="align-middle mr-1">{collectionName}</span>{" "}
             <Icons.verifiedFilled className="size-[.9em] inline-block align-middle" />
           </p>{" "}

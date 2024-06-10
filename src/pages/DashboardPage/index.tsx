@@ -1,12 +1,13 @@
 import AssetManager from "@/components/AssetManager";
 import BalanceCard from "@/components/BalanceCard";
+import Container from "@/components/Container";
 import IntegrationCard from "@/components/IntegrationCard";
 import UserAssetsListCard from "@/components/UserAssetsListCard";
 import brands from "@/lib/brands";
 
 const UserCoinCard = () => {
   return (
-    <div className="bg-neutral-900 rounded-2xl p-10 row-span-2 flex items-center justify-center">
+    <div className="bg-neutral-900 rounded-2xl p-6 2xl:p-10 row-span-2 flex items-center justify-center">
       <AssetManager />
     </div>
   );
@@ -14,8 +15,8 @@ const UserCoinCard = () => {
 
 function DashboardPage() {
   return (
-    <div className="p-10">
-      <main className="grid grid-cols-[.6fr_1fr] gap-4 mb-6">
+    <Container>
+      <main className="grid grid-cols-[.6fr_1fr] gap-4 mb-6 max-lg:hidden">
         <BalanceCard />
         <UserCoinCard />
         <UserAssetsListCard />
@@ -30,7 +31,7 @@ function DashboardPage() {
           />
         ))}
       </main>
-    </div>
+    </Container>
   );
 }
 

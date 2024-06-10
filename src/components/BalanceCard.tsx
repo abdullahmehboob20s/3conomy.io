@@ -4,14 +4,18 @@ import Icons from "./Icons";
 
 const BalanceCard = () => {
   return (
-    <div className="bg-neutral-900 p-8 rounded-2xl">
-      <header className="flex items-center justify-between">
+    <div className="bg-neutral-900 p-6 2xl:p-8 rounded-2xl flex flex-col justify-between">
+      <header className="flex max-sm:flex-col sm:items-center sm:justify-between max-sm:space-y-4">
         <div>
           <p className="opacity-70 mb-2 font-thin">Total Balance</p>
-          <h1 className="text-4xl">1,350,000</h1>
+          <h1 className="text-3xl 2xl:text-4xl">1,350,000</h1>
         </div>
 
-        <Button variant="outline" className="bg-transparent" size="sm">
+        <Button
+          variant="outline"
+          className="bg-transparent max-sm:w-fit"
+          size="sm"
+        >
           <span>Month</span>
           <ChevronDown className="size-4" />
         </Button>
