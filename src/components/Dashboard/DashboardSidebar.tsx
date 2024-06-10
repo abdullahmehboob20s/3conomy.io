@@ -54,8 +54,6 @@ function DashboardSidebar() {
       ".dashboard-link-active"
     ) as HTMLDivElement;
 
-    // console.log();
-
     if (
       floatingItemRef &&
       floatingItemRef.current &&
