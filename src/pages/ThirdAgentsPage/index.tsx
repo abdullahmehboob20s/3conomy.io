@@ -23,7 +23,7 @@ const AgentAvatar = ({
     <div
       onClick={() => {
         const newSearchParams = new URLSearchParams(searchParams);
-        newSearchParams.set("inbox", true);
+        newSearchParams.set("inbox", "true");
         setSearchParams(newSearchParams);
       }}
       className="px-4 relative cursor-pointer group hover:opacity-70"
@@ -163,7 +163,7 @@ function ThirdAgentsPage() {
                 className="p-0 h-auto max-lg:flex hidden"
                 onClick={() => {
                   const newSearchParams = new URLSearchParams(searchParams);
-                  newSearchParams.delete("inbox", true);
+                  newSearchParams.delete("inbox", "true");
                   setSearchParams(newSearchParams);
                 }}
               >
