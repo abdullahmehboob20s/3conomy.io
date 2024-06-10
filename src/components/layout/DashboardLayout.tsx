@@ -6,8 +6,8 @@ function DashboardLayout({
   sidebar = true,
   dashbbaordHeader = true,
 }: {
-  sidebar: boolean;
-  dashbbaordHeader: boolean;
+  sidebar?: boolean;
+  dashbbaordHeader?: boolean;
 }) {
   return (
     <div className="min-h-screen">
