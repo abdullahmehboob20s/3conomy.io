@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import coins from "@/lib/coins";
 import Icons from "./Icons";
 import { Button } from "./ui/button";
-import { ArrowRightLeft, ChevronDown, X } from "lucide-react";
+import { ArrowRightLeft, ChevronDown} from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   Dialog,
