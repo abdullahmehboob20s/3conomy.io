@@ -1,19 +1,39 @@
-import  { useState } from 'react';
+import { useState, useEffect } from 'react';
 import coins from "@/lib/coins";
 import Icons from "./Icons";
 import { Button } from "./ui/button";
-import { ArrowRightLeft, ChevronDown} from "lucide-react";
+import { ArrowRightLeft, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 
 function AssetManager({ className }: { className?: string }) {
-  const [isOnrampOpen, setIsOnrampOpen] = useState(false);
+  const [isMoonPayOpen, setIsMoonPayOpen] = useState(false);
+
+  useEffect(() => {
+    if (isMoonPayOpen) {
+      const script = document.createElement('script');
+      script.src = 'https://static.moonpay.com/web-sdk/v1/moonpay-web-sdk.min.js';
+      script.defer = true;
+      script.onload = () => {
+        const moonpaySdk = window.MoonPayWebSdk.init({
+          flow: "buy",
+          environment: "sandbox",
+          variant: "overlay",
+          params: {
+            apiKey: "pk_test_Bi5iCEeSMNLSWTTLoBAV4vsNV3gHzNRY", // Replace with your MoonPay publishable API key
+            baseCurrencyCode: "usd",
+            baseCurrencyAmount: "100",
+            defaultCurrencyCode: "eth"
+          }
+        });
+        moonpaySdk.show();
+      };
+      document.body.appendChild(script);
+    }
+  }, [isMoonPayOpen]);
+
+  const handleMoonPayClick = () => {
+    setIsMoonPayOpen(true);
+  };
 
   return (
     <main className={cn("flex flex-col items-center", className)}>
@@ -38,27 +58,14 @@ function AssetManager({ className }: { className?: string }) {
         <Button variant="outline" className="bg-transparent px-10">
           Receive
         </Button>
-        <Dialog open={isOnrampOpen} onOpenChange={setIsOnrampOpen}>
-          <DialogTrigger asChild>
-            <Button
-              size="icon"
-              variant="outline"
-              className="bg-transparent max-sm:hidden"
-            >
-              <ArrowRightLeft className="size-4" />
-            </Button>
-          </DialogTrigger>
-          <DialogContent className="sm:max-w-[425px]">
-            <DialogHeader>
-              <DialogTitle>Buy or Sell any Crypto</DialogTitle>
-            </DialogHeader>
-            <iframe
-              src="https://onramp.money/main/buy/?appId=1"
-              width="100%"
-              height="500px"
-            />
-          </DialogContent>
-        </Dialog>
+        <Button
+          size="icon"
+          variant="outline"
+          className="bg-transparent max-sm:hidden"
+          onClick={handleMoonPayClick}
+        >
+          <ArrowRightLeft className="size-4" />
+        </Button>
       </footer>
     </main>
   );
