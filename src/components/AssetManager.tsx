@@ -54,7 +54,7 @@ function AssetManager({ className }: { className?: string }) {
       </h1>
       <p className="opacity-70 text-center mt-2 text-lg 2xl:text-xl">$0.00</p>
       <footer className="mt-7 2xl:mt-10 flex items-center space-x-4 justify-center">
-        <Button className="px-10">Send</Button>
+        <Button className="px-10">Senda</Button>
         <Button variant="outline" className="bg-transparent px-10">
           Receive
         </Button>
